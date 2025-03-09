@@ -1,6 +1,6 @@
-﻿namespace Solution.Comunication.Requests
+﻿namespace Solution.Communication.Requests
 {
-    class RequestUserRegisterJson
+    public class RequestUserRegisterJson
     {
         public string Name { get; set; } = string.Empty;
 

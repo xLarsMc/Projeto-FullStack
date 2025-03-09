@@ -1,16 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Solution.Application.useCases.User;
+using Solution.Communication.Requests;
+using Solution.Communication.Responses;
 
 namespace Solution.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        [HttpGet(Name = "TesteUser")]
-        public IActionResult LoginUsuario()
+        [HttpPost]
+        [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)]
+        public IActionResult LoginUsuario(RequestUserRegisterJson request)
         {
-            return Ok();
+            var useCase = new RegisterUserUseCase();
+
+            var result = useCase.userRegister(request);
+
+            return Created(string.Empty, result);
         }
+
     }
 }

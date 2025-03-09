@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "sBNqDSpGjbE=",
+  "dgSpecHash": "qwbtXwfFuEc=",
   "success": true,
   "projectFilePath": "C:\\Users\\Usuario\\Projeto-FullStack\\Backend\\Solution\\Solution.API\\Solution.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",

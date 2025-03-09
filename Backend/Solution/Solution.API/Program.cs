@@ -1,12 +1,14 @@
-using Microsoft.EntityFrameworkCore;
-using Solution.Infrastructure;
+//using Microsoft.EntityFrameworkCore;
+//using Solution.Infrastructure;
+
+using Solution.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 //Configuração DbContext
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 builder.Services.AddControllers();
@@ -22,6 +24,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<CultureMiddleware>();
 
 app.UseHttpsRedirection();
 
