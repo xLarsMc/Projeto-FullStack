@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
+    <None Remove="NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="ResourceMessageException.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

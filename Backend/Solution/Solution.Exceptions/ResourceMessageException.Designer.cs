@@ -86,5 +86,14 @@ namespace Solution.Exceptions {
                 return ResourceManager.GetString("PASSWORD_LENGTH", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a An unknown error has occurred..
+        /// </summary>
+        public static string UNKNOWN_ERROR {
+            get {
+                return ResourceManager.GetString("UNKNOWN_ERROR", resourceCulture);
+            }
+        }
     }
 }

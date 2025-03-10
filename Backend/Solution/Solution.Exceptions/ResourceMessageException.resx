@@ -126,4 +126,7 @@
   <data name="PASSWORD_LENGTH" xml:space="preserve">
     <value>The password must be equal or greater than 8 characters.</value>
   </data>
+  <data name="UNKNOWN_ERROR" xml:space="preserve">
+    <value>An unknown error has occurred.</value>
+  </data>
 </root>
