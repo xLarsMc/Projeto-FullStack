@@ -17,6 +17,7 @@
     <ProjectReference Include="..\Solution.Application\Solution.Application.csproj" />
     <ProjectReference Include="..\Solution.Comunication\Solution.Communication.csproj" />
     <ProjectReference Include="..\Solution.Exceptions\Solution.Exceptions.csproj" />
+    <ProjectReference Include="..\Solution.Infraestructure\Solution.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

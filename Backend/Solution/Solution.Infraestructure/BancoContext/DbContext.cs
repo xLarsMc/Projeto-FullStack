@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Solution.Domain.Entities;
 
 namespace Solution.Infrastructure
 {
@@ -9,14 +10,15 @@ namespace Solution.Infrastructure
         {
         }
 
+        public DbSet<User> Users { get; set; }
+
         // DbSets das suas entidades
         //public DbSet<Cliente> Clientes { get; set; }
         // Adicione outros DbSets conforme necessário
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            // Configurações adicionais do modelo, se necessário
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
     }
 }

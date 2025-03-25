@@ -5,13 +5,13 @@ namespace Solution.Application.Services.Criptografia
 {
     public class PasswordEncrypter
     {
+        private readonly string _additionalKey;
+        public PasswordEncrypter(string additionalKey) => _additionalKey = additionalKey;
         public string Encrypt(string password)
         {
-            var chaveAdicional = "ABC";
+            var newPassword = $"{password}{_additionalKey}";
 
-            var newPassword = $"{password}{chaveAdicional}";
-
-            var bytes = Encoding.UTF8.GetBytes(password);
+            var bytes = Encoding.UTF8.GetBytes(newPassword);
             var hashBytes = SHA512.HashData(bytes);
             return BytesToString(hashBytes);
         }

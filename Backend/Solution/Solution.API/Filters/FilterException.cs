@@ -14,8 +14,8 @@ namespace Solution.API.Filters
         {
             if (context.Exception is SolutionException)
                 HandleExceptions(context);
-
-            HandleUnknownExceptions(context);
+            else 
+                HandleUnknownExceptions(context);
         }
 
         private void HandleExceptions(ExceptionContext context)

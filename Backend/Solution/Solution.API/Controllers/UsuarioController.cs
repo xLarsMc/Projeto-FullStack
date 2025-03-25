@@ -11,11 +11,10 @@ namespace Solution.API.Controllers
     {
         [HttpPost]
         [ProducesResponseType(typeof(ResponseRegisterUserJson), StatusCodes.Status201Created)]
-        public IActionResult LoginUsuario(RequestUserRegisterJson request)
+        public async Task<IActionResult> LoginUsuario([FromServices] IRegisterUserUseCase useCase,
+                                          [FromBody] RequestUserRegisterJson request)
         {
-            var useCase = new RegisterUserUseCase();
-
-            var result = useCase.userRegister(request);
+            var result = await useCase.userRegister(request);
 
             return Created(string.Empty, result);
         }
