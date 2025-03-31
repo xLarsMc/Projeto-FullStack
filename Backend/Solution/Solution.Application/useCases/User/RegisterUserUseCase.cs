@@ -48,7 +48,7 @@ namespace Solution.Application.useCases.User
 
             await _UnitOfWork.Commit();
 
-            return new ResponseRegisterUserJson { Name = request.Name };
+            return new ResponseRegisterUserJson { Name = user.Name };
         }
 
         private async Task Validate(RequestUserRegisterJson req)

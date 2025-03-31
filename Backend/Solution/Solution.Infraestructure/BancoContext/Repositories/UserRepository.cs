@@ -11,7 +11,7 @@ namespace Solution.Infrastructure.BancoContext.Repositories
         public async Task Add(User user) => await _dbContext.Users.AddAsync(user);
         public async Task<bool> UserExist(string email)
         {
-            return await _dbContext.Users.AnyAsync(user => user.Email.Equals(email) && user.isActive);
+            return await _dbContext.Users.AnyAsync(user => user.Email.Equals(email) && user.Active);
         }
     }
 }
