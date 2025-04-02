@@ -49,6 +49,7 @@ namespace Validators.Test.User.Register
             result.Errors.ShouldContain(e => e.ErrorMessage.Equals(ResourceMessageException.EMAIL_EMPTY));
         }
         [Fact]
+
         public void Error_WhenEmail_IsInvalid()
         {
             var validator = new RegisterUserUseCaseValidator();
