@@ -41,20 +41,20 @@ jobs:
         shell: powershell
         run: |
           dotnet sonarscanner begin /k:"xLarsMc_Projeto-FullStack" `
-                                       /o:"projet-fullstack" `
-                                       /d:sonar.login="$env:SONAR_TOKEN" `
-                                       /d:sonar.host.url="https://sonarcloud.io"
+                              /o:"projet-fullstack" `
+                              /d:sonar.host.url="https://sonarcloud.io" `
+                              /d:sonar.login="$env:SONAR_TOKEN" `
+                              /d:sonar.branch.name="${{ github.ref_name }}"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       # Compila a solução (.sln) - ajuste o caminho conforme sua estrutura
       - name: Build
-        run: dotnet build Backend/Solution/Solution.sln --no-incremental
+        run: dotnet build "Backend/Solution/Solution.sln" --no-incremental
 
       # Finaliza a análise e envia os resultados ao SonarCloud
       - name: SonarCloud End
         shell: powershell
-        run: |
-          dotnet sonarscanner end /d:sonar.login="$env:SONAR_TOKEN"
+        run: dotnet sonarscanner end /d:sonar.login="$env:SONAR_TOKEN"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
