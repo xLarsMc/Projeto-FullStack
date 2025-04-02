@@ -13,22 +13,22 @@ namespace Solution.API.Filters
         public void OnException(ExceptionContext context)
         {
             if (context.Exception is SolutionException)
-                HandleExceptions(context);
+                HandleProjectExceptions(context);
             else 
                 HandleUnknownExceptions(context);
         }
 
-        private void HandleExceptions(ExceptionContext context)
+        private static void HandleProjectExceptions(ExceptionContext context)
         {
             if (context.Exception is SolutionException)
             {
                 var exception = context.Exception as ErrorOnValidationException;
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                context.Result = new BadRequestObjectResult(new ResponseErrorJson(exception.ErrorsMessage));
+                context.Result = new BadRequestObjectResult(new ResponseErrorJson(exception!.ErrorsMessage));
             }     
         }
 
-        private void HandleUnknownExceptions(ExceptionContext context)
+        private static void HandleUnknownExceptions(ExceptionContext context)
         {
             context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             context.Result = new ObjectResult(new ResponseErrorJson(ResourceMessageException.UNKNOWN_ERROR));

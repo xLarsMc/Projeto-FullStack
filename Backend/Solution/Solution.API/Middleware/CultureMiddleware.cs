@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using Solution.Domain.Extensions;
+using System.Globalization;
 
 namespace Solution.API.Middleware
 {
@@ -17,7 +18,7 @@ namespace Solution.API.Middleware
 
             var cultureInfo = new CultureInfo("en");
 
-            if(!string.IsNullOrWhiteSpace(requestCulture) && supportedLanguages.Any(c => c.Name.Equals(requestCulture)))
+            if(requestCulture.NotEmpty() && supportedLanguages.Any(c => c.Name.Equals(requestCulture)))
                 cultureInfo = new CultureInfo(requestCulture);
 
             CultureInfo.CurrentCulture = cultureInfo;

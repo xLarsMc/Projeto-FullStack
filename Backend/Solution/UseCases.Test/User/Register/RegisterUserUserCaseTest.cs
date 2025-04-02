@@ -38,7 +38,7 @@ namespace UseCases.Test.User.Register
             exception.ErrorsMessage.First().ShouldContain(ResourceMessageException.EMAIL_ALREADY_EXISTS);
         }
 
-        private RegisterUserUseCase CreateUseCase(string? email = null)
+        private static RegisterUserUseCase CreateUseCase(string? email = null)
         {
             var mapper = MapperBuilder.Build();
             var passwordEncripter = PasswordEncripterBuilder.Build();

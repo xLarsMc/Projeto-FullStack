@@ -193,3 +193,10 @@ FakesAssemblies/
 
 /.sonarqube
 coverage.opencover.xml
+
+# Ignorar arquivos de configuração sensíveis na API
+**/appsettings.json
+**/appsettings.*.json
+
+
+

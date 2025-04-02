@@ -13,7 +13,6 @@ namespace Solution.Infrastructure
         public DbSet<User> Users { get; set; }
 
         // DbSets das suas entidades
-        //public DbSet<Cliente> Clientes { get; set; }
         // Adicione outros DbSets conforme necessário
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
