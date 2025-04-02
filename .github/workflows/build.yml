@@ -40,11 +40,11 @@ jobs:
       - name: SonarCloud Begin
         shell: powershell
         run: |
-          dotnet sonarscanner begin /k:"xLarsMc_Projeto-FullStack" ^
-                                     /o:"projet-fullstack" ^
-                                     /d:sonar.host.url="https://sonarcloud.io" ^
-                                     /d:sonar.login="$env:SONAR_TOKEN" ^
-                                     /d:sonar.branch.name="${{ github.ref_name }}"
+          dotnet sonarscanner begin /k:"xLarsMc_Projeto-FullStack" `
+                              /o:"projet-fullstack" `
+                              /d:sonar.host.url="https://sonarcloud.io" `
+                              /d:sonar.login="$env:SONAR_TOKEN" `
+                              /d:sonar.branch.name="${{ github.ref_name }}"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
