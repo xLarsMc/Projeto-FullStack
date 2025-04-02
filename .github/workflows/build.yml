@@ -3,30 +3,30 @@ name: SonarCloud Analysis
 on:
   push:
     branches:
-      - main
+      - master
       - develop
   pull_request:
     branches:
-      - main
+      - master
       - develop
 
 jobs:
   sonarcloud:
     runs-on: windows-latest
     steps:
-      # Faz o checkout do repositório
+      # Checkout do repositório
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Importante para análise completa
+          fetch-depth: 0
 
-      # Instala Java, necessário para o SonarScanner
+      # Configura o Java (necessário para o SonarScanner)
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # Configura o .NET
+      # Configura o ambiente .NET
       - name: Set up .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -38,10 +38,12 @@ jobs:
 
       # Inicia a análise no SonarCloud
       - name: SonarCloud Begin
-        run: dotnet sonarscanner begin /k:"xLarsMc_Projeto-FullStack" ^
-                                      /o:"projet-fullstack" ^
-                                      /d:sonar.login="${{ secrets.SONAR_TOKEN }}" ^
-                                      /d:sonar.host.url="https://sonarcloud.io"
+        shell: powershell
+        run: |
+          dotnet sonarscanner begin /k:"xLarsMc_Projeto-FullStack" `
+                                       /o:"projet-fullstack" `
+                                       /d:sonar.login="$env:SONAR_TOKEN" `
+                                       /d:sonar.host.url="https://sonarcloud.io"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
@@ -51,6 +53,8 @@ jobs:
 
       # Finaliza a análise e envia os resultados ao SonarCloud
       - name: SonarCloud End
-        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        shell: powershell
+        run: |
+          dotnet sonarscanner end /d:sonar.login="$env:SONAR_TOKEN"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
