@@ -193,3 +193,7 @@ FakesAssemblies/
 
 /.sonarqube
 coverage.opencover.xml
+# Build output and machine-local files
+[Oo]bj/
+[Bb]in/
+*.csproj.user
